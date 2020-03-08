@@ -18,6 +18,12 @@ Route::get('/rough', function () {
     return view('dashboard');
 });
 
+
+
+Route::get('/demo', function () {
+    return view('demo.demo');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
