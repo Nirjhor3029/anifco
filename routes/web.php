@@ -21,7 +21,7 @@ Route::get('/rough', function () {
 
 
 Route::get('/demo', function () {
-    return view('demo.demo');
+    // return view('pages.demo.demo');
 });
 
 Auth::routes();
@@ -56,4 +56,20 @@ Route::get('/catalogues', 'PageController@catalogues')->name('catalogues');
 
 Route::get('/private', 'PageController@private')->name('private');
 Route::get('/government', 'PageController@government')->name('government');
+
+
+Route::get('/add-company', 'CompanyController@index')->name('company');
+Route::post('/create-company', 'CompanyController@createCompany')->name('createCompany');
+Route::get('/manage-company', 'CompanyController@manageCompany')->name('manageCompany');
+Route::get('/remove-company/{id}', 'CompanyController@removeCompany')->name('removeCompany');
+Route::post('/update-company', 'CompanyController@updateCompany')->name('updateCompany');
+
+
+Route::get('/add-User', 'UserController@index')->name('User');
+Route::post('/create-User', 'UserController@createUser')->name('createUser');
+Route::get('/manage-User', 'UserController@manageUser')->name('manageUser');
+Route::get('/remove-User/{id}', 'UserController@removeUser')->name('removeUser');
+Route::post('/update-User', 'UserController@updateUser')->name('updateUser');
+
+
 
