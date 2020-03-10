@@ -67,7 +67,7 @@ Route::post('/update-company', 'CompanyController@updateCompany')->name('updateC
 
 Route::get('/add-User', 'UserController@index')->name('User');
 Route::post('/create-User', 'UserController@createUser')->name('createUser');
-Route::get('/manage-User', 'UserController@manageUser')->name('manageUser');
+Route::get('/manage-User/{id}', 'UserController@manageUser')->name('manageUser');
 Route::get('/remove-User/{id}', 'UserController@removeUser')->name('removeUser');
 Route::post('/update-User', 'UserController@updateUser')->name('updateUser');
 

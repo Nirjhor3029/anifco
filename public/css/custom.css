@@ -11,3 +11,6 @@
 .row_gap{
     margin-bottom: 30px;
 }
+.required_star{
+    color: red;
+}

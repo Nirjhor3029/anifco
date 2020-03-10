@@ -86,11 +86,12 @@ class PageController extends Controller
         $companies = Company::all();
         return view('pages.catalogues',compact('companies'));
     }
-    public function private()
-    {
-        $companies = Company::all();
-        return view('pages.private',compact('companies'));
-    }
+
+//    public function private()
+//    {
+//        $companies = Company::all();
+//        return view('pages.private',compact('companies'));
+//    }
     public function government()
     {
         $companies = Company::all();

@@ -14,8 +14,9 @@ class UserController extends Controller
     public function index()
     {
         $roles = URole::all();
+        $users = User::all();
         // return $roles;
-        return view('pages.user.create',compact('roles'));
+        return view('pages.user.create',compact('roles','users'));
     }
     public function createUser(Request $request)
     {
@@ -33,22 +34,29 @@ class UserController extends Controller
                         ->withInput();
         }
         
-        return User::create([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,
             'password' => Hash::make($request->password),
         ]);
 
-        return $request;
+        return redirect()->back()->with('message', 'Successfully added one record !');
     }
-    public function manageUser()
+    public function manageUser($id)
     {
-        
+//        return $id;
+        $roles = URole::all();
+        $users = User::all();
+        $update_user = User::find($id);
+        // return $roles;
+        return view('pages.user.create',compact('roles','users','update_user'));
     }
     public function removeUser($id)
     {
-        
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->back()->with('remove_message', 'Deleted one record successfully!');
     }
     public function updateUser(Request $request)
     {

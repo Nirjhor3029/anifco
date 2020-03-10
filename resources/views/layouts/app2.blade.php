@@ -21,7 +21,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -38,7 +38,12 @@
     {{--Admin TLE styles-end--}}
 
     <!-- DataTables -->
-  <link rel="stylesheet" href="{{asset('/assets/')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+    {{--<link rel="stylesheet" href="{{asset('/assets/')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.css">--}}
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    {{--<script src="{{asset('/assets/')}}/plugins/jquery/jquery.min.js"></script>--}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -437,7 +442,9 @@
 
 
 
+
 </div>
+
 
 
 
@@ -445,16 +452,31 @@
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="{{asset('/assets/')}}/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="{{asset('/assets/')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('/assets/')}}/dist/js/adminlte.min.js"></script>
+{{--<script src="{{asset('/assets/')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>--}}
+
 
 
 <!-- DataTables -->
-<script src="{{asset('/assets/')}}/plugins/datatables/jquery.dataTables.js"></script>
-<script src="{{asset('/assets/')}}/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+{{--<script src="{{asset('/assets/')}}/plugins/datatables/jquery.dataTables.js"></script>--}}
+{{--<script src="{{asset('/assets/')}}/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>--}}
+
+<!-- AdminLTE App -->
+<script src="{{asset('/assets/')}}/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+{{--<script src="{{asset('/assets/')}}/dist/js/demo.js"></script>--}}
+
+
+<script src="http://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="{{asset('js/custom.js')}}"></script>
+
+
+<script>
+    $(document).ready( function () {
+//        alert("hello");
+        $('#user_table').DataTable();
+    } );
+</script>
 
 </body>
 </html>
