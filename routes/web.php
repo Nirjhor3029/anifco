@@ -58,18 +58,18 @@ Route::get('/private', 'PageController@private')->name('private');
 Route::get('/government', 'PageController@government')->name('government');
 
 
-Route::get('/add-company', 'CompanyController@index')->name('company');
-Route::post('/create-company', 'CompanyController@createCompany')->name('createCompany');
-Route::get('/manage-company', 'CompanyController@manageCompany')->name('manageCompany');
-Route::get('/remove-company/{id}', 'CompanyController@removeCompany')->name('removeCompany');
-Route::post('/update-company', 'CompanyController@updateCompany')->name('updateCompany');
+Route::get('/add-Company', 'CompanyController@index')->name('Company');
+Route::post('/create-Company', 'CompanyController@createCompany')->name('createCompany');
+Route::get('/manage-Company/{id}', 'CompanyController@manageCompany')->name('manageCompany');
+Route::get('/remove-Company/{id}', 'CompanyController@removeCompany')->name('removeCompany');
+Route::post('/update-Company/{id}', 'CompanyController@updateCompany')->name('updateCompany');
 
 
 Route::get('/add-User', 'UserController@index')->name('User');
 Route::post('/create-User', 'UserController@createUser')->name('createUser');
 Route::get('/manage-User/{id}', 'UserController@manageUser')->name('manageUser');
 Route::get('/remove-User/{id}', 'UserController@removeUser')->name('removeUser');
-Route::post('/update-User', 'UserController@updateUser')->name('updateUser');
+Route::post('/update-User/{id}', 'UserController@updateUser')->name('updateUser');
 
 
 

@@ -131,17 +131,17 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ route('company') }}" class="nav-link ">
+                                        <a href="{{ route('Company') }}" class="nav-link ">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Add Company</p>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('testimonial') }}" class="nav-link ">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Manage Company</p>
-                                        </a>
-                                    </li>
+                                    {{--<li class="nav-item">--}}
+                                        {{--<a href="{{ route('testimonial') }}" class="nav-link ">--}}
+                                            {{--<i class="far fa-circle nav-icon"></i>--}}
+                                            {{--<p>Manage Company</p>--}}
+                                        {{--</a>--}}
+                                    {{--</li>--}}
                                 </ul>
                             </li> 
                             
@@ -161,12 +161,12 @@
                                             <p>Add User</p>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="{{ route('testimonial') }}" class="nav-link ">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Manage User</p>
-                                        </a>
-                                    </li>
+                                    {{--<li class="nav-item">--}}
+                                        {{--<a href="{{ route('testimonial') }}" class="nav-link ">--}}
+                                            {{--<i class="far fa-circle nav-icon"></i>--}}
+                                            {{--<p>Manage User</p>--}}
+                                        {{--</a>--}}
+                                    {{--</li>--}}
                                 </ul>
                             </li> 
 
@@ -466,6 +466,8 @@
 <!-- AdminLTE for demo purposes -->
 {{--<script src="{{asset('/assets/')}}/dist/js/demo.js"></script>--}}
 
+<!-- bs-custom-file-input -->
+<script src="{{asset('/assets/')}}/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
 <script src="http://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script src="{{asset('js/custom.js')}}"></script>
@@ -475,7 +477,15 @@
     $(document).ready( function () {
 //        alert("hello");
         $('#user_table').DataTable();
+        bsCustomFileInput.init();
     } );
+
+    var loadFile = function(event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    };
+
+
 </script>
 
 </body>

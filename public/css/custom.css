@@ -1,16 +1,26 @@
-.logo_img{
-     border-radius: 50%;
+.logo_img {
+    border-radius: 50%;
     vertical-align: middle;
 
- }
+}
 
-.txt_center{
+.txt_center {
     text-align: center;
 }
 
-.row_gap{
+.row_gap {
     margin-bottom: 30px;
 }
-.required_star{
+
+.required_star {
     color: red;
+}
+
+.colored_row {
+    background-color: rgba(43, 195, 93, 0.29);
+}
+
+.preview_image {
+    height: 200px;
+    width: 200px;
 }

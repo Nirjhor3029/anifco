@@ -41,13 +41,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="email" class="col-sm-4 col-form-label">Email</label>
+                                    <label for="email" class="col-sm-4 col-form-label">Email <span class="required_star">*</span></label>
                                     <div class="col-sm-8">
                                         <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="{{ old('email') }}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="role" class="col-sm-4 col-form-label">Role</label>
+                                    <label for="role" class="col-sm-4 col-form-label">Role <span class="required_star">*</span></label>
                                     <div class="col-sm-8">
                                         
                                         <select class="form-control" name="role" id="role" value="{{ old('role') }}" required>
@@ -59,13 +59,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="password" class="col-sm-4 col-form-label">Password</label>
+                                    <label for="password" class="col-sm-4 col-form-label">Password <span class="required_star">*</span></label>
                                     <div class="col-sm-8">
                                         <input type="password" class="form-control" id="password" placeholder="Password" name="password" value="{{ old('password') }}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="confirm_password" class="col-sm-4 col-form-label">confirm Password</label>
+                                    <label for="confirm_password" class="col-sm-4 col-form-label">confirm Password <span class="required_star">*</span></label>
                                     <div class="col-sm-8">
                                         <input type="password" class="form-control" id="confirm_password" placeholder="confirm Password" name="password_confirmation" required>
                                     </div>
@@ -122,23 +122,23 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form class="form-horizontal" method="POST" action="{{route('updateUser')}}">
+                            <form class="form-horizontal" method="POST" action="{{route('updateUser',$update_user->id)}}">
                                 {{ csrf_field() }}
                                 <div class="card-body">
                                     <div class="form-group row">
-                                        <label for="name" class="col-sm-4 col-form-label">name</label>
+                                        <label for="name" class="col-sm-4 col-form-label">name <span class="required_star">*</span></label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" id="name" placeholder="name" name="name" value="{{ $update_user->name }}" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="email" class="col-sm-4 col-form-label">Email</label>
+                                        <label for="email" class="col-sm-4 col-form-label">Email <span class="required_star">*</span></label>
                                         <div class="col-sm-8">
                                             <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="{{ $update_user->email }}" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="role" class="col-sm-4 col-form-label">Role</label>
+                                        <label for="role" class="col-sm-4 col-form-label">Role <span class="required_star">*</span></label>
                                         <div class="col-sm-8">
 
 
@@ -153,13 +153,13 @@
                                     <div class="form-group row">
                                         <label for="password" class="col-sm-4 col-form-label">Password</label>
                                         <div class="col-sm-8">
-                                            <input type="password" class="form-control" id="password" placeholder="Password" name="password"  required>
+                                            <input type="password" class="form-control" id="password" placeholder="Password" name="password"  >
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="confirm_password" class="col-sm-4 col-form-label">confirm Password</label>
                                         <div class="col-sm-8">
-                                            <input type="password" class="form-control" id="confirm_password" placeholder="confirm Password" name="password_confirmation" required>
+                                            <input type="password" class="form-control" id="confirm_password" placeholder="confirm Password" name="password_confirmation" >
                                         </div>
                                     </div>
 
@@ -175,7 +175,7 @@
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success">Update</button>
-                                    <button type="reset" class="btn btn-default float-right">Cancel</button>
+                                    <a href="{{route('User')}}" class="btn btn-default float-right">Cancel</a>
                                 </div>
                                 <!-- /.card-footer -->
                             </form>
@@ -222,7 +222,7 @@
                             <?php
                                 $role = \App\URole::where('role',$user->role)->first();
                             ?>
-                                <tr>
+                                <tr class="colored_row">
                                     <td>{{$index+1}}</td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
@@ -250,11 +250,11 @@
                             </tbody>
                             <tfoot>
                             <tr>
-                            <th>Rendering engine</th>
-                            <th>Browser</th>
-                            <th>Platform(s)</th>
-                            <th>Engine version</th>
-                            <th>CSS grade</th>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Action</th>
                             </tr>
                             </tfoot>
                         </table>

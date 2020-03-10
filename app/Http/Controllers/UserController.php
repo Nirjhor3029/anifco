@@ -58,8 +58,47 @@ class UserController extends Controller
         $user->delete();
         return redirect()->back()->with('remove_message', 'Deleted one record successfully!');
     }
-    public function updateUser(Request $request)
+    
+    public function updateUser(Request $request,$id)
     {
-        
+//        return $id;
+        $update_user = User::find($id);
+
+        if(isset($request->password)){
+//            return "pas";
+            $validator = Validator::make($request->all(), [
+                'name' => 'required|string|max:255',
+                'email' => 'required|unique:users|email|string',
+                'password' => 'required|string|min:8|confirmed',
+            ]);
+
+            $update_user->name = $request->name;
+            $update_user->email = $request->email;
+            $update_user->role = $request->role;
+        }else{
+//            return "no";
+            $validator = Validator::make($request->all(), [
+                'name' => 'required|string|max:255',
+                'email' => 'required|unique:users|email|string',
+            ]);
+
+            $update_user->name = $request->name;
+            $update_user->email = $request->email;
+            $update_user->role = $request->role;
+            $update_user->password = Hash::make($request->password);
+        }
+
+        if ($validator->fails()) {
+            return redirect()->route('User')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $update_user->save();
+
+        return redirect()->back()->with('update_message', 'Update one record successfully!');
+
+
+//        return $request;
     }
 }
